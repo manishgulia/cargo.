@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SignUp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #151516;
+      }
+
+      .container {
+        background-color: rgb(68, 185, 148);
+        box-shadow: 10px 10px lightblue;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 50px;
+      }
+
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 11px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .py-2 {
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      .text-center {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('common/navbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row" style="justify-content: center">
+        <div class="col-md-4">
+          <div class="container">
+            <h2 class="text-center">SignUp Form</h2>
+            <form action="/signup" method="post" class="signup-form" enctype="multipart/form-data">
+              <div class="input-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Your Name"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Your Email"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter Your Password"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <input
+                  class="mx-3"
+                  type="radio"
+                  id="recruiter"
+                  name="userType"
+                  value="recruiter"
+                  required
+                  onclick="toggleCompanyInput()"
+                />
+                <label for="recruiter">Recruiter</label>
+                <input
+                  class="mx-3"
+                  type="radio"
+                  id="employee"
+                  name="userType"
+                  value="employee"
+                  required
+                  onclick="toggleCompanyInput()"
+                />
+                <label for="employee">Employee</label>
+              </div>
+              <div class="input-group" id="companyInput" style="display: none">
+                <input
+                    type="text"
+                    name="c_name"
+                    placeholder="Enter Company Name"
+                    required
+                />
+                <label for="company_logo" class="my-4 " style="font-weight: 500;">Company Logo</label>
+                <input type="file" name="images" accept="image/*" required/>
+            </div>
+            
+              <button type="submit">Submit</button>
+              <div class="py-2">
+                <p>
+                  If you already have an account,
+                  <span style="color: blue"><a href="/login">Sign IN</a></span>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function toggleCompanyInput() {
+        var companyInput = document.getElementById("companyInput");
+        var recruiterRadio = document.getElementById("recruiter");
+
+        if (recruiterRadio.checked) {
+          companyInput.style.display = "block";
+          // alert('You selected "Recruiter"');
+        } else {
+          companyInput.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

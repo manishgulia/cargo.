@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Main page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('common/navbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="text-center">Featured Jobs</h2>
+        </div>
+      </div>
+      <div class="row my-3 " >
+        <% for(var i=0; i<result.length; i++) { %>
+        <div class="col-md-5 mx-auto py-4 my-3" style="border: 1px solid red">
+          <div class="d-flex">
+            <div class="my-auto">
+              <img src="/upload/<%= result[i].image %>" alt="" />
+            </div>
+            <div>
+              <p><%= result[i].job_field %> (<%= result[i].experience %> years experience required)</p>
+              <div class="d-flex">
+                <div class="mx-2">
+                  <i class="fa-solid fa-briefcase px-2"></i><%= result[i].post_name %>
+                </div>
+                <div class="mx-2">
+                  <i class="fa-solid fa-location-dot px-2"></i><%= result[i].job_location %>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto">
+              <i
+                class="fa-regular fa-bookmark"
+                style="display: flex; justify-content: center"
+              ></i>
+              <p class="text-success">featured</p>
+            </div>
+          </div>
+        </div>
+       <%}%>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

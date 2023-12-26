@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Description Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #151516;
+      }
+
+      .container {
+        background-color: rgb(68, 185, 148);
+        box-shadow: 10px 10px lightblue;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 50px;
+      }
+
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include('common/navbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row" style="justify-content: center">
+        <div class="col-md-8">
+          <div class="container">
+            <form action="/job_desc_form" method="post" class="signup-form">
+              <div>
+                <label><h6 class="text-sm">Post Name</h6></label>
+                <input
+                  class="mb-2"
+                  type="text"
+                  name="post_name"
+                  placeholder="Post Name"
+                />
+              </div>
+              <div>
+                <label><h6 class="text-sm">Job field</h6></label>
+                <select class="mb-2" name="job_field">
+                    <option value="account & finance">Account & Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Project Management">Project Management</option>
+                    <option value="Sales & Marketing">Sales & Marketing</option>
+                    <option value="Marketing & Communication">Marketing & Communication</option>
+                    <option value="IT">IT</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Import">Import</option>
+                </select>
+            </div>
+              <div>
+                <label><h6 class="text-sm">Yrs Experience</h6></label>
+                <input
+                  class="mb-2"
+                  type="text"
+                  name="experience"
+                  placeholder="Yrs Experience"
+                />
+              </div>
+              <div>
+                <label><h6 class="text-sm">Job Description</h6></label><br />
+                <textarea
+                  class="mb-2"
+                  name="job_desc"
+                  cols="125"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div>
+                <label><h6 class="text-sm">Job Location</h6></label>
+                <input
+                  class="mb-2"
+                  type="text"
+                  name="job_location"
+                  placeholder="Job location"
+                />
+              </div>
+              <div>
+                <label><h6 class="text-sm">Contact No.</h6></label>
+                <input
+                  class="mb-2"
+                  type="text"
+                  name="contact_no"
+                  placeholder="Contact Number"
+                />
+              </div>
+              <div>
+                <label><h6 class="text-sm">Minimum Qualification</h6></label>
+                <input
+                  class="mb-2"
+                  type="text"
+                  name="qualification"
+                  placeholder="Minimum Qualification"
+                />
+              </div>
+              <div>
+                <label><h6 class="text-sm">Post Date</h6></label>
+                <input
+                  class="mb-2 mx-2"
+                  type="date"
+                  name="post_date"
+                  placeholder="Job post Date"
+                />
+              </div>
+
+              <button type="submit" style="width: auto;">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
